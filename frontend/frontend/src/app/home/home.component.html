@@ -1,0 +1,37 @@
+<app-header></app-header>
+<style>
+  .btn{
+    background-color: red;
+  }
+</style>
+<div class="container">
+  <h4 class="p-2 border-bottom border-success">FOOD ITEMS</h4>
+  <div class="row">
+    <div class="col-sm-3" *ngFor="let p of list">
+      <div class="card">
+        <div class="card-header text-center">
+          <h6>{{ p.pname }}</h6>
+        </div>
+        <img
+          class="card-img-top m-2"
+          src="http://localhost:8080/{{ p.photo }}"
+          alt="Card image cap"
+          style="width: 90%; height: 150px"
+        />
+        <div class="card-body text-center">
+          <p class="card-text">
+            {{ p.category.catname }}
+          </p>
+          <p>Price: &#8377; {{ p.price }}</p>
+          <P>Description:{{p.Description}}</P>
+          <button (click)="addtocart(p.id)" class="btn btn-primary btn-sm mr-2">
+            Add to Cart<img src="https://online.kfc.co.in/static/media/Icon_Add_to_Cart.58b87a9b.svg">
+          </button>
+          <!-- <button (click)="addtowishlist(p.id)" class="btn btn-success btn-sm">
+            Add to Wishlist
+          </button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
